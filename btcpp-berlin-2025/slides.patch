@@ -1,0 +1,34 @@
+--- slides.tex	2025-09-25 18:46:06.247605877 +0200
++++ slides2.tex	2025-09-25 18:46:37.226621704 +0200
+@@ -55,7 +55,23 @@
+   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+ \fi
+ \usepackage{lmodern}
++\usepackage{xcolor}
++\usepackage{tikz}
++\definecolor{customgold}{HTML}{FADA5E}
++\definecolor{customblack}{HTML}{212529}
++\setbeamercolor{structure}{fg=customgold}
++\setbeamercolor{title}{fg=customblack}
++\setbeamercolor{frametitle}{fg=customblack}
++\setbeamercolor{title in head/foot}{fg=customblack}
+ \usetheme[]{Warsaw}
++\setbeamertemplate{frametitle}{
++  \nointerlineskip
++  \begin{beamercolorbox}[sep=0.3cm,wd=\paperwidth,leftskip=0.2cm,rightskip=0.2cm]{frametitle}
++    \usebeamerfont{frametitle}\insertframetitle\par
++  \end{beamercolorbox}
++}
++\setbeamertemplate{itemize item}{\usebeamercolor[fg]{item}\usebeamerfont*{itemize item}$\bullet$}
++\setbeamertemplate{enumerate item}{\usebeamercolor[fg]{item}\usebeamerfont*{enumerate item}\tikz[baseline=(char.base)]{\node[shape=circle,fill=customgold,minimum size=1.1em,inner sep=0pt] (char) {\textcolor{customblack}{\insertenumlabel}}}}
+ \ifPDFTeX\else
+   % xetex/luatex font selection
+ \fi
+@@ -105,6 +118,7 @@
+ \title{Challenges of Building a Non-Custodial Lightning App}
+ \author{ek}
+ \date{October 3, 2025}
++\institute{\includegraphics[width=3cm]{img/stackernews.png}}
+
+ \begin{document}
+ \frame{\titlepage}

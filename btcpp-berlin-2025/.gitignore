@@ -1,0 +1,5 @@
+build/
+*.tex
+*.pdf
+# gimp
+*.xcf
